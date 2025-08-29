@@ -16,7 +16,7 @@
     _Pragma("GCC diagnostic push") \
     _Pragma("GCC diagnostic ignored \"-Wunused-parameter\"") \
     _Pragma("GCC diagnostic ignored \"-Wreturn-type\"") \
-    EXTERNC __attribute__((noinline, weak, used, section(".recomp_import." mod))) func {} \
+    EXTERNC __attribute__((noinline, weak, used, section(".recomp_import." mod))) inline func { return; } \
     _Pragma("GCC diagnostic pop")
 
 #define RECOMP_EXPORT EXTERNC __attribute__((retain, section(".recomp_export")))

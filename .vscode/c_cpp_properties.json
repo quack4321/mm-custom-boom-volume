@@ -4,6 +4,7 @@
             "name": "Mod",
             "includePath": [
                 "${workspaceFolder}/include",
+                "${workspaceFolder}/include/libc",
                 "${workspaceFolder}/include/dummy_headers",
                 "${workspaceFolder}/mm-decomp/include",
                 "${workspaceFolder}/mm-decomp/src",
@@ -12,7 +13,8 @@
             "defines": [
                 "F3DEX_GBI_2",
                 "_LANGUAGE_C",
-                "MIPS"
+                "MIPS",
+                "_HAS_EXCEPTIONS=0"
             ],
             "compilerPath": "clang",
             "cStandard": "c99",
