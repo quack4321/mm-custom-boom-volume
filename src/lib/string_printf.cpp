@@ -1,6 +1,8 @@
 #include "string_printf.hpp"
 #include "stdarg.h"
-#include "PR/xstdio.h"
+extern "C" {
+    #include "PR/xstdio.h"
+}
 
 void* snprintf_pfn(void* dst, const char* fmt, size_t size) {
     std::string* str = reinterpret_cast<std::string*>(dst);
