@@ -19,7 +19,7 @@ int memcmp( const void* lhs, const void* rhs, size_t count ) {
     const unsigned char* rhs_char = (const unsigned char*)rhs; 
     for (size_t i = 0; i < count; i++) {
         unsigned char l = lhs_char[i];
-        unsigned char r = lhs_char[i];
+        unsigned char r = rhs_char[i];
         if (l < r) { return -1; }
         if (l > r) { return 1; }
     }
