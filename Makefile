@@ -35,6 +35,9 @@ else ifneq ($(shell uname),Darwin)
     # This is done this way because -nostdinc would prevent a system install of libc++ from being included as well.
     CXXFLAGS += -I include/libc/stdlib_override
 else
+    # Intercept specific includes on MacOS to prevent them from including the MacOS SDK counterparts.
+    # This is done this way because -nostdinc would prevent a system install of libc++ from being included as well.
+    CXXFLAGS += -I include/libc/stdlib_override_mac
 endif
 
 rwildcard = $(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
