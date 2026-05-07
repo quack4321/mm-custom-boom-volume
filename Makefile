@@ -3,8 +3,8 @@ BUILD_DIR := build
 # Allow the user to specify the compiler and linker on macOS
 # as Apple Clang does not support MIPS architecture
 ifeq ($(OS),Windows_NT)
-    CC      := clang
-    LD      := ld.lld
+    CC := "C:/Program Files/LLVM/bin/clang.exe"
+    LD := "C:/Program Files/LLVM/bin/ld.lld.exe"
 else ifneq ($(shell uname),Darwin)
     CC      := clang
     LD      := ld.lld
@@ -16,7 +16,7 @@ endif
 TARGET  := $(BUILD_DIR)/mod.elf
 
 LDSCRIPT := mod.ld
-ARCHFLAGS := -target mips -mips2 -mabi=32 -O2 -G0 -mno-abicalls -mno-odd-spreg -mno-check-zero-division \
+ARCHFLAGS := -target mips -mips2 -mabi=32 -O2 \
              -fomit-frame-pointer -ffast-math -fno-unsafe-math-optimizations -fno-builtin-memset
 WARNFLAGS := -Wall -Wextra -Wno-incompatible-library-redeclaration -Wno-unused-parameter -Wno-unknown-pragmas -Wno-unused-variable \
              -Wno-missing-braces -Wno-unsupported-floating-point-opt -Werror=section
