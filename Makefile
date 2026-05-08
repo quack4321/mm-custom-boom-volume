@@ -3,8 +3,8 @@ BUILD_DIR := build
 # Allow the user to specify the compiler and linker on macOS
 # as Apple Clang does not support MIPS architecture
 ifeq ($(OS),Windows_NT)
-    CC := "C:/Program Files/LLVM/bin/clang.exe"
-    LD := "C:/Program Files/LLVM/bin/ld.lld.exe"
+    CC := "C:\PortableApps\Windows-AMD64-ClangEssentialsAndN64Recomp-ClangVersion22.1.1-MipsOnly\nrs_bin\clang.exe"
+    LD := "C:\PortableApps\Windows-AMD64-ClangEssentialsAndN64Recomp-ClangVersion22.1.1-MipsOnly\nrs_bin\ld.lld.exe"
 else ifneq ($(shell uname),Darwin)
     CC      := clang
     LD      := ld.lld
@@ -28,7 +28,7 @@ LDFLAGS  := -nostdlib -T $(LDSCRIPT) -Map $(BUILD_DIR)/mod.map --unresolved-symb
 rwildcard = $(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 getdirs = $(sort $(dir $(1)))
 
-C_SRCS := $(call rwildcard,src,*.c)
+C_SRCS := src/main.c
 C_OBJS := $(addprefix $(BUILD_DIR)/, $(C_SRCS:.c=.o))
 C_DEPS := $(addprefix $(BUILD_DIR)/, $(C_SRCS:.c=.d))
 

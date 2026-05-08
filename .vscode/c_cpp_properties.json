@@ -14,10 +14,10 @@
                 "_LANGUAGE_C",
                 "MIPS"
             ],
-            "compilerPath": "clang",
             "cStandard": "c99",
             "cppStandard": "c++20",
-            "intelliSenseMode": "clang-x86"
+            "intelliSenseMode": "windows-clang-x64",
+            "compilerPath": "C:\\PortableApps\\Windows-AMD64-ClangEssentialsAndN64Recomp-ClangVersion22.1.1-MipsOnly\\nrs_bin\\clang.exe"
         }
     ],
     "version": 4

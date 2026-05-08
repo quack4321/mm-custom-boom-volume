@@ -1,11 +1,19 @@
 [manifest]
 id = "custom_dawn_jingle"
 display_name = "Custom Dawn/Night Jingle"
+short_description = "Customizable dawn and night transition sounds."
+description = """
+A mod that allows you to change the volume and sound of the dawn and night 
+transition jingles using a custom menu slider.
+"""
+authors = ["Quack4321"]
+version = "1.0.0"
+game_id = "mm"
+minimum_recomp_version = "1.2.2"
 dependencies = [
-    "mm_audio_api:1.0.0" # Match with the current Thunderstore/GitHub version
+    "magemods_audio_api:1.0.0"
 ]
 
-# Add a customizable slider to the mod menu
 [[manifest.config_options]]
 id = "jingle_volume"
 name = "Jingle Volume"
@@ -14,3 +22,12 @@ type = "Float"
 default = 1.0
 min = 0.0
 max = 3.0
+
+[inputs]
+elf_path = "mod.elf"
+mod_filename = "custom_dawn_jingle"
+func_reference_syms_file = "Zelda64RecompSyms/mm.us.rev1.syms.toml"
+data_reference_syms_files = [
+    "Zelda64RecompSyms/mm.us.rev1.datasyms.toml",
+    "Zelda64RecompSyms/mm.us.rev1.datasyms_static.toml"
+]
